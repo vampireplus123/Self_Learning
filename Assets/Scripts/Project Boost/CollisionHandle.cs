@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class CollisionHandle : MonoBehaviour
 {
+    public float timeForLoad = 3f;
     void OnCollisionEnter(Collision other)
     {
         switch (other.gameObject.tag)
@@ -15,7 +16,7 @@ public class CollisionHandle : MonoBehaviour
                 break;
             case "Finish":
                 Debug.Log("Finish game");
-                NextLevel(SceneManager.GetActiveScene().buildIndex);
+                startNext();
                 break;
             case "Fuel":
                 Debug.Log("+100");
@@ -29,25 +30,31 @@ public class CollisionHandle : MonoBehaviour
         }
     }
 
-    void startCrash()
-    {
-        GetComponent<Movement>().enabled = false;
-        Invoke("ReloadScene",1f);
-        
-    }
+    
     void ReloadScene()
     {
-        
         int indexSence = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(indexSence);
     }
-    void NextLevel(int LevelIndex)
+    void NextLevel()
     {   
+        int LevelIndex = SceneManager.GetActiveScene().buildIndex;
         int nextSene = LevelIndex +1;
         if(nextSene == SceneManager.sceneCountInBuildSettings){
             nextSene = 0;
         }
         SceneManager.LoadScene(nextSene);
+    }
+    void startCrash()
+    {
+        GetComponent<Movement>().enabled = false;
+        Invoke("ReloadScene",timeForLoad);
+    }
+
+    void startNext()
+    {
+        GetComponent<Movement>().enabled = false;
+        Invoke("NextLevel",timeForLoad);
     }
 
 }
