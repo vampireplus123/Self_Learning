@@ -1,0 +1,22 @@
+# Blender 4.0.2 MTL File: 'None'
+# www.blender.org
+
+newmtl 10475_Rocket_Ship_v1
+Ns 52.999996
+Ka 1.000000 1.000000 1.000000
+Ks 0.450000 0.450000 0.450000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Rocket_Ship_v1_L3.123c485c9e1d-6d02-47cf-b751-9606e55c8fa1/Rocket_Ship_v1_L3.123c485c9e1d-6d02-47cf-b751-9606e55c8fa1/10475_Rocket_Ship_v1_Diffuse.jpg
+
+newmtl gloss
+Ns 65.000015
+Ka 1.000000 1.000000 1.000000
+Ks 0.765000 0.765000 0.765000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Rocket_Ship_v1_L3.123c485c9e1d-6d02-47cf-b751-9606e55c8fa1/Rocket_Ship_v1_L3.123c485c9e1d-6d02-47cf-b751-9606e55c8fa1/10475_Rocket_Ship_v1_Diffuse.jpg
