@@ -6,13 +6,17 @@ public class Movement : MonoBehaviour
 {
     public float thurst = 5f;
     public float RotateSpeed = 20f;
+    public float fuel = 100f;
+    public AudioClip Engine;
     Rigidbody rb;
     AudioSource audioSource;
+    PlaySound playClip;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         audioSource = GetComponent<AudioSource>();
+        playClip = GetComponent<PlaySound>();
     }
 
     // Update is called once per frame
@@ -32,9 +36,10 @@ public class Movement : MonoBehaviour
         } */
         if (Input.GetKey(KeyCode.Space)){
             rb.AddRelativeForce(Vector3.up*thurst*Time.deltaTime);
+            powerPlaiyer();
             if(!audioSource.isPlaying)
             {
-                audioSource.Play();
+                playClip.PlayTheClip(0);
             }
            
          }
@@ -60,4 +65,19 @@ public class Movement : MonoBehaviour
         transform.Rotate(Vector3.forward * rotatePlayer * Time.deltaTime);
         rb.freezeRotation = false;
     }
+    
+    public void incresePowerOfPlayer(float newfuel)
+    {
+        fuel= newfuel;
+        if(fuel > 100){
+            fuel = 100;
+        }
+    }
+    void powerPlaiyer(){
+       fuel-=10*Time.deltaTime; 
+       if(fuel <=0){
+        GetComponent<Movement>().enabled = false;
+       }
+    }
+
 }

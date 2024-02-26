@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 7146566446974931245}
   - component: {fileID: 5073981428157873829}
   - component: {fileID: 8307931708911376523}
+  - component: {fileID: 4854078320929453565}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -152,6 +153,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thurst: 1000
   RotateSpeed: 100
+  fuel: 50
+  Engine: {fileID: 8300000, guid: ef9ecdf7a24127d4fac6b07f13296418, type: 3}
 --- !u!82 &5073981428157873829
 AudioSource:
   m_ObjectHideFlags: 0
@@ -162,8 +165,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: ef9ecdf7a24127d4fac6b07f13296418, type: 3}
-  m_Resource: {fileID: 8300000, guid: ef9ecdf7a24127d4fac6b07f13296418, type: 3}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -261,3 +264,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8e3837294e4f264691256f82e438a75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeForLoad: 3
+--- !u!114 &4854078320929453565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1612979506389586308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50f4abe0a51dd72418016bd75f26e557, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clip:
+  - {fileID: 8300000, guid: ef9ecdf7a24127d4fac6b07f13296418, type: 3}
+  - {fileID: 8300000, guid: e4d15605bba92e24db2598626d115646, type: 3}
+  - {fileID: 8300000, guid: a5b0e43624e740c43918b32371887bae, type: 3}
