@@ -11,12 +11,14 @@ public class Movement : MonoBehaviour
     Rigidbody rb;
     AudioSource audioSource;
     PlaySound playClip;
+    PlayParticle playParticle;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         audioSource = GetComponent<AudioSource>();
         playClip = GetComponent<PlaySound>();
+        playParticle = GetComponent<PlayParticle>();
     }
 
     // Update is called once per frame
@@ -36,16 +38,18 @@ public class Movement : MonoBehaviour
         } */
         if (Input.GetKey(KeyCode.Space)){
             rb.AddRelativeForce(Vector3.up*thurst*Time.deltaTime);
-            powerPlaiyer();
+            // powerPlaiyer();
             if(!audioSource.isPlaying)
             {
                 playClip.PlayTheClip(0);
+                playParticle.playParticle(2);
             }
            
          }
         else
         {
             audioSource.Stop();
+            playParticle.StopParticle(2);
         }
        
     }

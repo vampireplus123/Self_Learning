@@ -9,7 +9,7 @@ public class CollisionHandle : MonoBehaviour
     public float timeForLoad = 3f;
     GameObject destroyGameObject;
     PlaySound playclip;
-   
+    PlayParticle playTheParticle;
     bool isTransition = false;
     /* First clip is for using the Die
     Second clip is finish the Level */
@@ -17,6 +17,7 @@ public class CollisionHandle : MonoBehaviour
     void Start(){
         destroyGameObject = GameObject.FindWithTag("Fuel");
         playclip = GetComponent<PlaySound>();
+        playTheParticle = GetComponent<PlayParticle>();
     }
     void OnCollisionEnter(Collision other)
     {
@@ -63,6 +64,7 @@ public class CollisionHandle : MonoBehaviour
     }
     void startCrash()
     {
+        playTheParticle.playParticle(1);
         isTransition = true;
         playclip.PlayTheClip(1);
         GetComponent<Movement>().enabled = false;
@@ -71,6 +73,7 @@ public class CollisionHandle : MonoBehaviour
 
     void startNext()
     {   
+        playTheParticle.playParticle(0);
         isTransition = true;
         playclip.PlayTheClip(2);
         GetComponent<Movement>().enabled = false;
